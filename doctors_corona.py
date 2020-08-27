@@ -1,0 +1,1 @@
+doctors_corona = ["Dr Kamau","Dr Mary"]
