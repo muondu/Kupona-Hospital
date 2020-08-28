@@ -75,19 +75,46 @@ if new_person_or_not == "n" or new_person_or_not == "no" or new_person_or_not ==
                                                 medicine_bill = 700
                                                 total_bill = old_person_bill + doctor_disease_bill  + medicine_bill + 200
                                                 print("Your total bill is " +  str(total_bill))
-                                                payment = int(input("Enter the amount: "))
-                                                if payment > total_bill:
-                                                    change = payment - total_bill
-                                                    print("Your change is " + str(change))
-                                                elif payment == total_bill:
-                                                    print("Thankyou and have a lovely day")
-                                                elif payment < total_bill:
-                                                    print("You have paid less money. Please pay the remaining amount.")
-                                                    payment - total_bill
-                                                    exit()
-                                                else:
-                                                    print("I did not understand you")
-                                            
+                                                method_paying = input("""
+                                                These are the options of paying
+                                                a Cash
+                                                b Card
+                                                c Insuaranse
+                                                d MPESA 
+                                                Which one do you want to pay with: 
+                                                """)
+                                                if method_paying == "Cash" or method_paying == "Money" or method_paying == "a" or method_paying == "a Cash":
+                                                    payment = int(input("Enter the amount paying: "))
+                                                    if payment > total_bill:
+                                                        change = payment - total_bill
+                                                        print("Your change is " + str(change))
+                                                    elif payment == total_bill:
+                                                        print("Thankyou and have a lovely day")
+                                                    elif payment < total_bill:
+                                                        print("You have paid less money. Please pay the remaining amount.")
+                                                        payment - total_bill
+                                                        exit()
+                                                    else:
+                                                        print("I did not understand you")
+                                                elif method_paying == "Card" or method_paying == "b Card" or method_paying == "b":
+                                                    which_card = input("""
+                                                    These are the cards you can swipe
+                                                    a Credit
+                                                    b Debit
+                                                    Which card do you want: 
+                                                    """)
+                                                    if which_card == "a" or which_card == "Credit" or which_card == "credit":
+                                                        print("You can swipe the card")
+                                                    else:
+                                                        print("I did not understand you")
+                                                elif method_paying == "Insuaranse"  or method_paying == "c" or method_paying == "c Insuaranse":
+                                                    print("Swipe the card for insuaranse")
+                                                elif method_paying == "MPESA"  or method_paying == "d" or method_paying == "d MPESA":
+                                                    print("The till number is 123456")
+                                                                                                
+
+
+                                                
                                         else:
                                             print("I did not understand you")
                                             doctors_func()
