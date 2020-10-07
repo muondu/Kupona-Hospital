@@ -86,7 +86,7 @@ if new_person_or_not == "n" or new_person_or_not == "no" or new_person_or_not ==
                                                 if method_paying == "Cash" or method_paying == "Money" or method_paying == "a" or method_paying == "a Cash":
                                                     payment = int(input("Enter the amount paying: "))
                                                     if payment > total_bill:
-                                                        change = payment - total_bill
+                                                        change = payment - total_bill   
                                                         print("Your change is " + str(change))
                                                     elif payment == total_bill:
                                                         print("Thankyou and have a lovely day")
@@ -103,7 +103,23 @@ if new_person_or_not == "n" or new_person_or_not == "no" or new_person_or_not ==
                                                     b Debit
                                                     Which card do you want: 
                                                     """)
-                                                    if which_card == "a" or which_card == "Credit" or which_card == "credit":
+                         def newUser():
+            fName = input("Please enter your first name:  ")
+            with sqlite3.connect('new_user.db') as db:
+                cursour = db.cursor()
+            findUser = ('SELECT * FROM new_user WHERE fName = ?')
+            cursour.execute(findUser,[(fName)])
+            sName = input("Enter your second name : ")
+            insertData = '''INSERT INTO new_user('fName', 'sName') VALUES(?,?)'''
+            cursour.execute(insertData,[(fName),(sName)])
+            print("Loading...")
+            time.sleep(3)
+            print("Succesfully done")
+            print("The price of the new card is 200.")
+            # bill += 200
+            # print(bill)
+            db.commit()
+    newUser()                           if which_card == "a" or which_card == "Credit" or which_card == "credit":
                                                         print("You can swipe the card")
                                                     else:
                                                         print("I did not understand you")
