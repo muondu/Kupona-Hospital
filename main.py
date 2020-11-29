@@ -59,7 +59,7 @@ if new_person_or_not == "n" or new_person_or_not == "no" or new_person_or_not ==
                                     def doctors_func():
                                         which_doctor = input("Which doctor do you want: ")
                                        
-                                        if which_doctor == "Dr.Jane" or which_doctor == "Dr.Mathew":
+                                        if which_doctor == "Dr.Jane" or which_doctor == "Dr.Mathew" or which_doctor == "a" or which_doctor == "b":
                                             print("You have been charged 200 sh")
                                             global doctor_disease_bill
                                             doctor_disease_bill = 200
@@ -103,23 +103,8 @@ if new_person_or_not == "n" or new_person_or_not == "no" or new_person_or_not ==
                                                     b Debit
                                                     Which card do you want: 
                                                     """)
-                         def newUser():
-            fName = input("Please enter your first name:  ")
-            with sqlite3.connect('new_user.db') as db:
-                cursour = db.cursor()
-            findUser = ('SELECT * FROM new_user WHERE fName = ?')
-            cursour.execute(findUser,[(fName)])
-            sName = input("Enter your second name : ")
-            insertData = '''INSERT INTO new_user('fName', 'sName') VALUES(?,?)'''
-            cursour.execute(insertData,[(fName),(sName)])
-            print("Loading...")
-            time.sleep(3)
-            print("Succesfully done")
-            print("The price of the new card is 200.")
-            # bill += 200
-            # print(bill)
-            db.commit()
-    newUser()                           if which_card == "a" or which_card == "Credit" or which_card == "credit":
+        
+                                                    if which_card == "a" or which_card == "Credit" or which_card == "credit":
                                                         print("You can swipe the card")
                                                     else:
                                                         print("I did not understand you")
@@ -131,36 +116,41 @@ if new_person_or_not == "n" or new_person_or_not == "no" or new_person_or_not ==
 
 
                                                 
-                                        else:
-                                            print("I did not understand you")
-                                            doctors_func()
+                                                else:
+                                                    print("I did not understand you")
+                                                    doctors_func()
                                     doctors_func()
                                 elif  which_disease == "Corona" or which_disease == "corona":
                                     print(doctors_corona)
                                     def doctors_func():
                                         which_doctor = input("Which doctor do you want: ")
-                                        if which_doctor == "Dr.Kamau" or which_doctor == "Dr.Mary":
+                                        if which_doctor == "Dr.Kamau" or which_doctor == "a" or which_doctor  =="b" or which_doctor == "Dr.Mary":
                                             print("You have been charged 200 sh")
                                             global doctor_disease_bill
                                             doctor_disease_bill = 200
                                             print("You can go to the doctor") 
                                             print("Welcome to the pharmasy.")   
-                                            print("These are no medicines for Corona. Sorry")
-                                            total_bill = old_person_bill + doctor_disease_bill  +  200
-                                            print("Your total bill is " +  str(total_bill))
-                                            payment = int(input("Enter the amount: "))
-                                            if payment > total_bill:
-                                                change = payment - total_bill
-                                                print("Your change is " + str(change))
-                                            elif payment == total_bill:
-                                                print("Thankyou and have a lovely day")
-                                            elif payment < total_bill:
-                                                print("You have paid less money. Please pay the remaining amount.")
-                                                payment - total_bill
-                                                exit()
+                                            print("These are the medicine of Corona")
+                                            print(pharmasy_corona)
+                                            which_medicine = input("Which of the medicine above do you want:")
+                                            if which_medicine == "Dubamada" or which_medicine == "Colamadb":
+                                                total_bill = old_person_bill + doctor_disease_bill  +  500
+                                                print("Your total bill is " +  str(total_bill))
+                                                payment = int(input("Enter the amount: "))
+                                                if payment > total_bill:
+                                                    change = payment - total_bill
+                                                    print("Your change is " + str(change))
+
+                                                elif payment == total_bill:
+                                                    print("Thankyou and have a lovely day")
+                                                elif payment < total_bill:
+                                                    print("You have paid less money. Please pay the remaining amount.")
+                                                    payment - total_bill
+                                                    exit()
+                                                else:
+                                                    print("I did not understand you")
                                             else:
                                                 print("I did not understand you")
-                                        
                                         
                                         else:
                                             print("I did not understand you")

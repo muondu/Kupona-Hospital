@@ -1,2 +1,2 @@
 pharmasy_malaria = ["Malarone","Quinine","Mefloquine","Primaquine phospate"]
-pharmasy_corona = ["No cure"]
+pharmasy_corona = ["Dubamada","Colamadb"]
